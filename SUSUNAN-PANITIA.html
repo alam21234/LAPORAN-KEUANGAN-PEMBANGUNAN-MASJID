@@ -30,16 +30,20 @@
         }
 
         body::before {
-            content: "بِسْمِ اللَّهِ";
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            font-size: 2rem;
-            color: rgba(13, 92, 62, 0.07);
-            z-index: -1;
-            font-family: 'Times New Roman', serif;
-            pointer-events: none;
-        }
+    content: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 4.5rem;
+    color: rgba(13, 92, 62, 0.06);
+    z-index: -1;
+    font-family: 'Segoe UI', 'Times New Roman', serif;
+    white-space: nowrap;
+    pointer-events: none;
+    text-align: center;
+    line-height: 1.4;
+}
 
         .container {
             max-width: 1100px;
