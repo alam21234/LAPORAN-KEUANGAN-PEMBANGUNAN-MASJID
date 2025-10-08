@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Keuangan Pembangunan Masjid Baitul Muttaqin - SMAN 1 Cluring</title>
+    <title>Laporan Keuangan Masjid Baitul Muttaqin - SMAN 1 Cluring</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1a5f7a;
-            --secondary-color: #159895;
-            --accent-color: #57C5B6;
-            --light-color: #f8f9fa;
+            --primary-color: #0d5c3e;
+            --secondary-color: #1a8c5f;
+            --accent-color: #d4af37;
+            --light-color: #f9f9f9;
             --dark-color: #2c3e50;
             --gold-color: #d4af37;
+            --background-gradient: linear-gradient(135deg, #f0f7f4 0%, #e6f2eb 100%);
         }
         
         * {
@@ -23,14 +24,27 @@
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            background: var(--background-gradient);
             color: var(--dark-color);
             line-height: 1.6;
             min-height: 100vh;
+            position: relative;
         }
-        
+
+        body::before {
+            content: "﷽";
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5rem;
+            color: rgba(13, 92, 62, 0.08);
+            z-index: -1;
+            font-family: 'Segoe UI', serif;
+            pointer-events: none;
+        }
+
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -39,9 +53,10 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 20px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
         
         header::before {
@@ -54,280 +69,134 @@
             background: linear-gradient(90deg, var(--gold-color), #f1c40f, var(--gold-color));
         }
         
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-        
         .logo-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
+            margin-bottom: 10px;
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background-color: white;
-            padding: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .logo:hover {
-            transform: rotate(5deg);
+            padding: 4px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
         
         .school-name {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
         }
         
         .page-title {
-            font-size: 2.2rem;
-            margin: 25px 0 10px;
+            font-size: 2rem;
+            margin: 25px 0 15px;
             text-align: center;
             color: var(--primary-color);
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         .tagline {
             text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: var(--secondary-color);
             margin-bottom: 30px;
             font-style: italic;
-            position: relative;
-            display: inline-block;
-            width: 100%;
+            padding: 0 10px;
         }
-        
-        .tagline::before, .tagline::after {
-            content: """;
-            font-size: 2rem;
-            color: var(--gold-color);
-            position: absolute;
-            top: -10px;
-        }
-        
-        .tagline::before {
-            left: 30%;
-        }
-        
-        .tagline::after {
-            right: 30%;
-        }
-        
+
+        /* Avatar Section */
         .principal-section {
-            background-color: white;
-            border-radius: 15px;
-            padding: 25px;
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
             margin: 30px 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             display: flex;
             align-items: center;
             gap: 25px;
             flex-wrap: wrap;
-            border-left: 5px solid var(--accent-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 3px solid var(--gold-color);
+            text-align: center;
         }
-        
-        .principal-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .principal-photo {
-            width: 160px;
-            height: 190px;
-            border-radius: 10px;
+
+        .principal-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            border: 3px solid var(--accent-color);
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+            margin: 0 auto;
         }
-        
+
         .principal-info {
             flex: 1;
+            min-width: 280px;
         }
-        
+
         .principal-name {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--primary-color);
             margin-bottom: 10px;
-            position: relative;
-            display: inline-block;
+            font-weight: bold;
         }
-        
-        .principal-name::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent-color);
+
+        .principal-role {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-style: italic;
         }
-        
-        .login-section {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 40px 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+        .principal-message {
+            color: var(--dark-color);
+            line-height: 1.7;
+        }
+
+        /* Card Style */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
             text-align: center;
-            border: 1px solid #e0e0e0;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 3px solid var(--gold-color);
         }
-        
-        .login-section:hover {
+
+        .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
-        
-        .btn-login {
+
+        .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
             color: white;
-            padding: 14px 35px;
+            padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(13, 92, 62, 0.3);
             margin-top: 15px;
+            width: auto;
         }
-        
-        .btn-login:hover {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--primary-color), #0a4a32);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(13, 92, 62, 0.4);
         }
-        
-        .btn-login i {
-            font-size: 1.2rem;
-        }
-        
-        .financial-report {
-            background-color: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 40px 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .section-title {
-            font-size: 1.7rem;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid var(--accent-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .section-title i {
-            color: var(--gold-color);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        th, td {
-            padding: 14px 16px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        th {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            font-weight: 600;
-            position: sticky;
-            top: 0;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-        
-        tr:hover {
-            background-color: #e9f7f7;
-            transition: background-color 0.2s ease;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 30px;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-        
-        .loading i {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-            animation: spin 2s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .progress-section {
-            background-color: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 40px 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .progress-bar {
-            height: 25px;
-            background-color: #e0e0e0;
-            border-radius: 12px;
-            margin: 20px 0;
-            overflow: hidden;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
-            border-radius: 12px;
-            width: 65%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 15px;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            font-weight: 600;
-            color: var(--dark-color);
-        }
-        
+
         footer {
             background: linear-gradient(135deg, var(--dark-color), #1a252f);
             color: white;
@@ -335,76 +204,59 @@
             padding: 30px 0;
             margin-top: 50px;
         }
-        
+
         .footer-content {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        
+
         .footer-logo {
             width: 60px;
             height: 60px;
-            margin: 0 auto 15px;
+            margin: 0 auto 10px;
             border-radius: 50%;
             background-color: white;
             padding: 5px;
         }
-        
+
         .mosque-icon {
             font-size: 2rem;
             color: var(--gold-color);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
-        
+
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
             .principal-section {
                 flex-direction: column;
                 text-align: center;
             }
-            
-            .principal-photo {
-                margin: 0 auto;
-            }
-            
-            .principal-name::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .tagline::before {
-                left: 20%;
-            }
-            
-            .tagline::after {
-                right: 20%;
-            }
-            
-            table {
-                font-size: 0.9rem;
-            }
-            
-            th, td {
-                padding: 10px 12px;
-            }
-        }
-        
-        @media (max-width: 480px) {
             .page-title {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
-            
             .tagline {
                 font-size: 1.1rem;
             }
-            
-            .section-title {
-                font-size: 1.4rem;
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            .principal-avatar {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+            .school-name {
+                font-size: 1.2rem;
+            }
+            .principal-name {
+                font-size: 1.35rem;
             }
         }
     </style>
@@ -412,59 +264,47 @@
 <body>
     <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <img src="https://i.ibb.co.com/Q7C0TZKh/SMAN1-Cluring-emblem.png" alt="SMAN1-Cluring-emblem" class="logo">
-                    <div class="school-name">SMAN 1 CLURING</div>
-                </div>
-                <h1>LAPORAN KEUANGAN PEMBANGUNAN MASJID BAITUL MUTTAQIN</h1>
+            <div class="logo-container">
+                <img src="https://i.ibb.co.com/Q7C0TZKh/SMAN1-Cluring-emblem.png" alt="SMAN1 Cluring" class="logo">
+                <div class="school-name">SMAN 1 CLURING</div>
             </div>
+            <h1>MASJID BAITUL MUTTAQIN</h1>
         </div>
     </header>
 
     <div class="container">
-        <h2 class="page-title">Transparansi Keuangan Pembangunan Masjid</h2>
-        <div class="tagline">Bersama Berjariyah, Membangun Rumah Allah</div>
-        
+        <h2 class="page-title">Transparansi & Kebersamaan</h2>
+        <p class="tagline">"Barangsiapa membangun masjid karena Allah, maka Allah akan membangunkan baginya rumah di surga."</p>
+
+        <!-- Avatar & Sambutan Kepala Sekolah -->
         <section class="principal-section">
-            <img src="https://i.ibb.co.com/cK2fjGcF/Helmi-S-Pd-M-Si.jpg" alt="Helmi, S.Pd, M.Si" class="principal-photo">
+            <img src="https://i.ibb.co.com/cK2fjGcF/Helmi-S-Pd-M-Si.jpg" alt="Helmi, S.Pd, M.Si" class="principal-avatar">
             <div class="principal-info">
-                <h3 class="principal-name">Helmi, S.Pd, M.Si</h3>
-                <p>Kepala Satuan Pendidikan SMAN 1 Cluring</p>
-                <p>Dengan penuh tanggung jawab dan semangat kebersamaan, kami menyampaikan laporan keuangan Pembangunan Masjid Baitul Muttaqin SMAN 1 Cluring. Setiap kontribusi yang diberikan adalah amal jariyah yang akan mengalirkan pahala tanpa henti.</p>
+                <div class="principal-name">Helmi, S.Pd, M.Si</div>
+                <div class="principal-role">Kepala Satuan Pendidikan SMAN 1 Cluring</div>
+                <p class="principal-message">
+                    Dengan penuh tanggung jawab dan semangat kebersamaan, kami menyampaikan laporan keuangan Pembangunan Masjid Baitul Muttaqin SMAN 1 Cluring. Setiap kontribusi yang diberikan adalah amal jariyah yang akan mengalirkan pahala tanpa henti.
+                </p>
             </div>
         </section>
-        
-        <section class="progress-section">
-            <h3 class="section-title"><i class="fas fa-chart-line"></i> Progress Pembangunan</h3>
-            <p>Perkembangan terkini pembangunan Masjid Baitul Muttaqin:</p>
-            <div class="progress-bar">
-                <div class="progress">65%</div>
-            </div>
-            <div class="progress-info">
-                <span>Terpakai: Rp 185.750.000</span>
-                <span>Target: Rp 285.000.000</span>
-            </div>
-            <p style="margin-top: 15px; font-style: italic;">Dana masih dibutuhkan untuk menyelesaikan pembangunan: <strong>Rp 99.250.000</strong></p>
-        </section>
-        
-        <section class="login-section">
-            <h3 class="section-title"><i class="fas fa-donate"></i> Input Data Amal & Infaq</h3>
-            <p>Bagi donatur dan pengurus masjid yang ingin menginput data amal dan infaq, silakan login melalui link berikut:</p>
-            <a href="https://script.google.com/macros/s/AKfycbx6vphVyQrS5CmS2WsmDBlM9VHTjqdsvRuUO6BJ1gDzwmfaeuh4xPrGAohYoZ2RqdAGJg/exec" class="btn-login">
+
+        <!-- Tautan Susunan Panitia -->
+        <div class="card">
+            <h3><i class="fas fa-users"></i> SUSUNAN PANITIA PEMBANGUNAN</h3>
+            <p>Klik tombol di bawah untuk melihat susunan kepanitiaan yang mengelola pembangunan Masjid Baitul Muttaqin.</p>
+            <a href="SUSUNAN-PANITIA.HTML" class="btn">
+                <i class="fas fa-file-alt"></i> LIHAT SUSUNAN PANITIA
+            </a>
+        </div>
+
+        <!-- Tautan Input Amal -->
+        <div class="card">
+            <h3><i class="fas fa-donate"></i> INPUT DATA AMAL & INFAQ</h3>
+            <p>Bagi donatur dan pengurus yang ingin menginput data amal, silakan login melalui tautan berikut:</p>
+            <a href="https://script.google.com/macros/s/AKfycbx6vphVyQrS5CmS2WsmDBlM9VHTjqdsvRuUO6BJ1gDzwmfaeuh4xPrGAohYoZ2RqdAGJg/exec" class="btn" target="_blank">
                 <i class="fas fa-sign-in-alt"></i> LOGIN KE INPUT AMAL
             </a>
-        </section>
-        
-        <section class="financial-report">
-            <h3 class="section-title"><i class="fas fa-file-invoice-dollar"></i> Laporan Keuangan Pembangunan</h3>
-            <div id="report-container">
-                <div class="loading">
-                    <i class="fas fa-spinner"></i><br>
-                    Memuat data keuangan...
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
 
     <footer>
@@ -473,124 +313,11 @@
                 <div class="mosque-icon">
                     <i class="fas fa-mosque"></i>
                 </div>
-                <img src="https://i.ibb.co.com/Q7C0TZKh/SMAN1-Cluring-emblem.png" alt="SMAN1-Cluring-emblem" class="footer-logo">
-                <p>&copy; 2025 SMAN 1 Cluring - Laporan Keuangan Pembangunan Masjid Baitul Muttaqin</p>
+                <img src="https://i.ibb.co.com/Q7C0TZKh/SMAN1-Cluring-emblem.png" alt="SMAN1 Cluring" class="footer-logo">
+                <p>&copy; 2025 SMAN 1 Cluring – Masjid Baitul Muttaqin</p>
                 <p>Transparansi untuk Kepercayaan, Akuntabilitas untuk Keberkahan</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // URL spreadsheet data
-        const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTiG1K0r3yM0R004Zb6nwinHe0BHUGUwikVJHfWC6WLUFC94bUJEl3_r26RzQANnOBTYCQGmCKS5PNy/pub?output=csv';
-        
-        // Data contoh jika tidak bisa mengambil dari spreadsheet
-        const sampleData = [
-            ["Tanggal", "Keterangan", "Pemasukan", "Pengeluaran", "Saldo"],
-            ["01/09/2023", "Donatur A (Infaq Pembangunan)", "5,000,000", "-", "5,000,000"],
-            ["05/09/2023", "Beli Semen 100 Sak", "-", "850,000", "4,150,000"],
-            ["10/09/2023", "Donatur B (Wakaf)", "10,000,000", "-", "14,150,000"],
-            ["15/09/2023", "Beli Keramik Lantai", "-", "3,500,000", "10,650,000"],
-            ["20/09/2023", "Donatur C (Infaq Pembangunan)", "7,500,000", "-", "18,150,000"],
-            ["25/09/2023", "Upah Tukang 2 Minggu", "-", "4,200,000", "13,950,000"]
-        ];
-        
-        // Fungsi untuk memuat data CSV dan mengonversinya ke tabel HTML
-        async function loadFinancialData() {
-            try {
-                const response = await fetch(spreadsheetUrl);
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                const csvData = await response.text();
-                
-                // Parse CSV data
-                const rows = csvData.split('\n');
-                const headers = rows[0].split(',').map(header => header.trim());
-                
-                // Buat tabel HTML
-                let tableHTML = '<table>';
-                
-                // Header tabel
-                tableHTML += '<thead><tr>';
-                headers.forEach(header => {
-                    tableHTML += `<th>${header}</th>`;
-                });
-                tableHTML += '</tr></thead>';
-                
-                // Isi tabel
-                tableHTML += '<tbody>';
-                for (let i = 1; i < rows.length; i++) {
-                    if (rows[i].trim() === '') continue;
-                    
-                    const cells = rows[i].split(',').map(cell => cell.trim());
-                    tableHTML += '<tr>';
-                    cells.forEach(cell => {
-                        // Tambahkan kelas untuk pemasukan dan pengeluaran
-                        if (cells.indexOf(cell) === 2 && cell !== '-' && cell !== '') {
-                            tableHTML += `<td style="color: #27ae60; font-weight: bold;">${cell}</td>`;
-                        } else if (cells.indexOf(cell) === 3 && cell !== '-' && cell !== '') {
-                            tableHTML += `<td style="color: #e74c3c; font-weight: bold;">${cell}</td>`;
-                        } else {
-                            tableHTML += `<td>${cell}</td>`;
-                        }
-                    });
-                    tableHTML += '</tr>';
-                }
-                tableHTML += '</tbody></table>';
-                
-                // Tampilkan tabel
-                document.getElementById('report-container').innerHTML = tableHTML;
-                
-            } catch (error) {
-                console.error('Error loading financial data:', error);
-                // Gunakan data contoh jika gagal mengambil dari spreadsheet
-                useSampleData();
-            }
-        }
-        
-        // Fungsi untuk menggunakan data contoh
-        function useSampleData() {
-            let tableHTML = '<table>';
-            
-            // Header tabel
-            tableHTML += '<thead><tr>';
-            sampleData[0].forEach(header => {
-                tableHTML += `<th>${header}</th>`;
-            });
-            tableHTML += '</tr></thead>';
-            
-            // Isi tabel
-            tableHTML += '<tbody>';
-            for (let i = 1; i < sampleData.length; i++) {
-                tableHTML += '<tr>';
-                sampleData[i].forEach((cell, index) => {
-                    // Tambahkan kelas untuk pemasukan dan pengeluaran
-                    if (index === 2 && cell !== '-' && cell !== '') {
-                        tableHTML += `<td style="color: #27ae60; font-weight: bold;">${cell}</td>`;
-                    } else if (index === 3 && cell !== '-' && cell !== '') {
-                        tableHTML += `<td style="color: #e74c3c; font-weight: bold;">${cell}</td>`;
-                    } else {
-                        tableHTML += `<td>${cell}</td>`;
-                    }
-                });
-                tableHTML += '</tr>';
-            }
-            tableHTML += '</tbody></table>';
-            
-            // Tampilkan tabel
-            document.getElementById('report-container').innerHTML = tableHTML;
-            
-            // Tambahkan catatan bahwa ini adalah data contoh
-            const note = document.createElement('p');
-            note.innerHTML = '<em>Catatan: Data yang ditampilkan adalah contoh. Data aktual akan diambil dari spreadsheet.</em>';
-            note.style.marginTop = '15px';
-            note.style.fontSize = '0.9rem';
-            note.style.color = '#7f8c8d';
-            document.getElementById('report-container').appendChild(note);
-        }
-        
-        // Muat data saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', loadFinancialData);
-    </script>
 </body>
 </html>
