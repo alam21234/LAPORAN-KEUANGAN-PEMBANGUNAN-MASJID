@@ -13,8 +13,6 @@
             --light-color: #f8f9fa;
             --dark-color: #2c3e50;
             --gold-color: #d4af37;
-            --islamic-green: #0a5d2c;
-            --arabic-pattern: #e8f4f1;
         }
         
         * {
@@ -29,72 +27,6 @@
             color: var(--dark-color);
             line-height: 1.6;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        /* Background pattern islami */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(10, 93, 44, 0.03) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(10, 93, 44, 0.03) 0%, transparent 20%),
-                radial-gradient(circle at 50% 50%, rgba(10, 93, 44, 0.02) 0%, transparent 20%);
-            background-size: 300px 300px;
-            z-index: -1;
-        }
-        
-        .islamic-border {
-            position: relative;
-        }
-        
-        .islamic-border::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold-color), transparent);
-        }
-        
-        .islamic-pattern {
-            background-color: var(--arabic-pattern);
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(10, 93, 44, 0.1) 0%, transparent 55%),
-                radial-gradient(circle at 75% 75%, rgba(10, 93, 44, 0.1) 0%, transparent 55%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .islamic-pattern::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(10, 93, 44, 0.03) 50px,
-                    rgba(10, 93, 44, 0.03) 51px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(10, 93, 44, 0.03) 50px,
-                    rgba(10, 93, 44, 0.03) 51px
-                );
-            z-index: 0;
         }
         
         .container {
@@ -104,17 +36,12 @@
         }
         
         header {
-            background: 
-                linear-gradient(135deg, rgba(26, 95, 122, 0.85), rgba(21, 152, 149, 0.85)),
-                url('https://i.ibb.co.com/992DgTsC/pembukaan-ldks.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 20px 0;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
         }
         
         header::before {
@@ -134,14 +61,12 @@
             flex-wrap: wrap;
             position: relative;
             z-index: 1;
-            width: 100%;
         }
         
         .logo-container {
             display: flex;
             align-items: center;
             gap: 15px;
-            flex: 1;
         }
         
         .logo {
@@ -161,18 +86,6 @@
         .school-name {
             font-size: 1.5rem;
             font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        
-        .header-title {
-            flex: 2;
-            text-align: center;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-        
-        .header-title h1 {
-            font-size: 1.8rem;
-            margin: 0;
         }
         
         .page-title {
@@ -222,20 +135,6 @@
             flex-wrap: wrap;
             border-left: 5px solid var(--accent-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .principal-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, rgba(87, 197, 182, 0.1) 0%, transparent 50%);
-            border-radius: 0 0 0 100px;
-            z-index: 0;
         }
         
         .principal-section:hover {
@@ -250,14 +149,10 @@
             object-fit: cover;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             border: 3px solid var(--accent-color);
-            position: relative;
-            z-index: 1;
         }
         
         .principal-info {
             flex: 1;
-            position: relative;
-            z-index: 1;
         }
         
         .principal-name {
@@ -287,34 +182,6 @@
             text-align: center;
             border: 1px solid #e0e0e0;
             transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .action-section::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 30px,
-                    rgba(10, 93, 44, 0.03) 30px,
-                    rgba(10, 93, 44, 0.03) 31px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 30px,
-                    rgba(10, 93, 44, 0.03) 30px,
-                    rgba(10, 93, 44, 0.03) 31px
-                );
-            z-index: 0;
-            opacity: 0.5;
         }
         
         .action-section:hover {
@@ -327,8 +194,6 @@
             gap: 20px;
             margin-top: 25px;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
         }
         
         .btn {
@@ -344,19 +209,6 @@
             font-size: 1.1rem;
             transition: all 0.3s ease;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
         }
         
         .btn:hover {
@@ -365,20 +217,16 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .btn:hover::before {
-            left: 100%;
-        }
-        
         .btn i {
             font-size: 1.2rem;
         }
         
         .btn-secondary {
-            background: linear-gradient(135deg, var(--islamic-green), #0a5d2c);
+            background: linear-gradient(135deg, #6c757d, #495057);
         }
         
         .btn-secondary:hover {
-            background: linear-gradient(135deg, #0a5d2c, #084422);
+            background: linear-gradient(135deg, #495057, #343a40);
         }
         
         .financial-report {
@@ -389,19 +237,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             border: 1px solid #e0e0e0;
-            position: relative;
-        }
-        
-        .financial-report::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, rgba(87, 197, 182, 0.1) 0%, transparent 50%);
-            border-radius: 0 0 0 120px;
-            z-index: 0;
         }
         
         .section-title {
@@ -413,8 +248,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            position: relative;
-            z-index: 1;
         }
         
         .section-title i {
@@ -426,8 +259,6 @@
             border-collapse: collapse;
             margin-top: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            position: relative;
-            z-index: 1;
         }
         
         th, td {
@@ -458,8 +289,6 @@
             padding: 30px;
             color: var(--primary-color);
             font-size: 1.1rem;
-            position: relative;
-            z-index: 1;
         }
         
         .loading i {
@@ -480,26 +309,12 @@
             text-align: center;
             padding: 30px 0;
             margin-top: 50px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold-color), #f1c40f, var(--gold-color));
         }
         
         .footer-content {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            position: relative;
-            z-index: 1;
         }
         
         .footer-logo {
@@ -517,36 +332,10 @@
             margin-bottom: 15px;
         }
         
-        .islamic-decoration {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 10px,
-                var(--gold-color) 10px,
-                var(--gold-color) 20px
-            );
-            opacity: 0.3;
-        }
-        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 text-align: center;
-                gap: 20px;
-            }
-            
-            .logo-container, .header-title {
-                flex: unset;
-                width: 100%;
-            }
-            
-            .header-title h1 {
-                font-size: 1.5rem;
             }
             
             .principal-section {
@@ -564,22 +353,19 @@
             }
             
             .tagline::before {
-                left: 10%;
+                left: 20%;
             }
             
             .tagline::after {
-                right: 10%;
+                right: 20%;
             }
             
             table {
                 font-size: 0.9rem;
-                display: block;
-                overflow-x: auto;
             }
             
             th, td {
                 padding: 10px 12px;
-                white-space: nowrap;
             }
             
             .action-buttons {
@@ -606,42 +392,18 @@
             .section-title {
                 font-size: 1.4rem;
             }
-            
-            .principal-section, .action-section, .financial-report {
-                padding: 20px;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-            
-            header {
-                min-height: 150px;
-                padding: 15px 0;
-            }
-            
-            .school-name {
-                font-size: 1.2rem;
-            }
-            
-            .header-title h1 {
-                font-size: 1.3rem;
-            }
         }
     </style>
 </head>
 <body>
-    <header class="islamic-pattern">
+    <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
                     <img src="https://i.ibb.co.com/Q7C0TZKh/SMAN1-Cluring-emblem.png" alt="SMAN1-Cluring-emblem" class="logo">
                     <div class="school-name">SMAN 1 CLURING</div>
                 </div>
-                <div class="header-title">
-                    <h1>LAPORAN KEUANGAN PEMBANGUNAN MASJID BAITUL MUTTAQIN</h1>
-                </div>
+                <h1>LAPORAN KEUANGAN PEMBANGUNAN MASJID BAITUL MUTTAQIN</h1>
             </div>
         </div>
     </header>
@@ -650,7 +412,7 @@
         <h2 class="page-title">Transparansi Keuangan Pembangunan Masjid</h2>
         <div class="tagline">Bersama Berjariyah, Membangun Rumah Allah</div>
         
-        <section class="principal-section islamic-border">
+        <section class="principal-section">
             <img src="https://i.ibb.co.com/cK2fjGcF/Helmi-S-Pd-M-Si.jpg" alt="Helmi, S.Pd, M.Si" class="principal-photo">
             <div class="principal-info">
                 <h3 class="principal-name">Helmi, S.Pd, M.Si</h3>
@@ -659,7 +421,7 @@
             </div>
         </section>
         
-        <section class="action-section islamic-border">
+        <section class="action-section">
             <h3 class="section-title"><i class="fas fa-cogs"></i> Akses Cepat</h3>
             <p>Gunakan tombol berikut untuk mengakses fitur terkait pembangunan masjid:</p>
             <div class="action-buttons">
@@ -672,7 +434,7 @@
             </div>
         </section>
         
-        <section class="financial-report islamic-border">
+        <section class="financial-report">
             <h3 class="section-title"><i class="fas fa-file-invoice-dollar"></i> Laporan Keuangan Pembangunan</h3>
             <div id="report-container">
                 <div class="loading">
@@ -694,7 +456,6 @@
                 <p>Transparansi untuk Kepercayaan, Akuntabilitas untuk Keberkahan</p>
             </div>
         </div>
-        <div class="islamic-decoration"></div>
     </footer>
 
     <script>
