@@ -173,16 +173,6 @@
             background-color: var(--accent-color);
         }
         
-        .committee-section {
-            background-color: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 40px 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-        }
-        
         .login-section {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             border-radius: 15px;
@@ -298,6 +288,46 @@
             100% { transform: rotate(360deg); }
         }
         
+        .progress-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            height: 25px;
+            background-color: #e0e0e0;
+            border-radius: 12px;
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+            border-radius: 12px;
+            width: 65%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
         footer {
             background: linear-gradient(135deg, var(--dark-color), #1a252f);
             color: white;
@@ -405,142 +435,17 @@
             </div>
         </section>
         
-        <section class="committee-section">
-            <h3 class="section-title"><i class="fas fa-users"></i> Susunan Panitia Pembangunan</h3>
-            <div id="committee-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Jabatan</th>
-                            <th>Nama</th>
-                            <th>Keterangan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Pelindung</td>
-                            <td>Helmi, S.Pd., M.Si</td>
-                            <td>Kepala Sekolah</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Penanggung Jawab</td>
-                            <td>Ali Muthohar, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Ketua Panitia</td>
-                            <td>Drs. Sy Hadi</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Sekretaris</td>
-                            <td>Alamsyah, S.E</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Bendahara</td>
-                            <td>Dewi Ainur Rokhmah, S.Pd.I.</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Sie. Humas</td>
-                            <td>Moh. Suharso, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Drs. Suroso</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Sie. Penggali Dana</td>
-                            <td>Imam Hadi Taufik H. S.Pd.I.</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Aris Riyanto, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Joko Irawan, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Cahya Mahardika, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Wali Kelas</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>OSIS</td>
-                            <td>Siswa</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Pengawas Bangunan</td>
-                            <td>Drs. Makhrus</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Siswo Hariningtyas, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>Pengadaan Barang</td>
-                            <td>Imam Afandi, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Andis Dwi, S.Sos.I.</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>M. As'ad, S.S</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>Dokumentasi</td>
-                            <td>Mirza, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>Agus Winaryanto, S.Pd</td>
-                            <td>Guru</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <section class="progress-section">
+            <h3 class="section-title"><i class="fas fa-chart-line"></i> Progress Pembangunan</h3>
+            <p>Perkembangan terkini pembangunan Masjid Baitul Muttaqin:</p>
+            <div class="progress-bar">
+                <div class="progress">65%</div>
             </div>
+            <div class="progress-info">
+                <span>Terpakai: Rp 185.750.000</span>
+                <span>Target: Rp 285.000.000</span>
+            </div>
+            <p style="margin-top: 15px; font-style: italic;">Dana masih dibutuhkan untuk menyelesaikan pembangunan: <strong>Rp 99.250.000</strong></p>
         </section>
         
         <section class="login-section">
