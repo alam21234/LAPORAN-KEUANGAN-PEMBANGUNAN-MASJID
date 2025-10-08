@@ -13,37 +13,41 @@
             --light: #f9fbf9;
             --dark: #2c3e50;
             --bg: #f0f8f5;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --border: #e0e0e0;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: var(--bg);
-            color: var(--dark);
+            background: linear-gradient(135deg, var(--bg), #e8f5f0);
+            color: var(--text);
             line-height: 1.6;
             position: relative;
+            min-height: 100vh;
         }
 
         body::before {
-    content: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-15deg);
-    font-size: 4.5rem;
-    color: rgba(13, 92, 62, 0.06);
-    z-index: -1;
-    font-family: 'Segoe UI', 'Times New Roman', serif;
-    white-space: nowrap;
-    pointer-events: none;
-    text-align: center;
-    line-height: 1.4;
-}
+            content: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            font-size: 4.5rem;
+            color: rgba(13, 92, 62, 0.06);
+            z-index: -1;
+            font-family: 'Segoe UI', 'Times New Roman', serif;
+            white-space: nowrap;
+            pointer-events: none;
+            text-align: center;
+            line-height: 1.4;
+        }
 
         .container {
             max-width: 1100px;
@@ -59,69 +63,121 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background: white;
-            padding: 6px;
+            padding: 10px;
             margin: 0 auto 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            border: 3px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 8px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .subtitle {
             color: var(--secondary);
             font-style: italic;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
 
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 5px;
+            gap: 10px;
             margin-bottom: 25px;
             flex-wrap: wrap;
+            padding: 0 20px;
         }
 
         .tab-btn {
-            padding: 12px 28px;
+            padding: 14px 32px;
             background: white;
             border: 2px solid var(--secondary);
             color: var(--secondary);
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 8px 8px 0 0;
+            border-radius: 50px;
             transition: all 0.3s ease;
             font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .tab-btn:hover::before {
+            left: 100%;
+        }
+
+        .tab-btn:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
         }
 
         .tab-btn.active {
             background: var(--secondary);
             color: white;
-            border-bottom: 2px solid var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(26, 140, 95, 0.3);
         }
 
         .tab-content {
             display: none;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            padding: 30px;
             overflow-x: auto;
+            animation: slideUp 0.6s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .tab-content.active {
             display: block;
-            animation: fadeIn 0.5s ease;
+            animation: slideIn 0.6s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -129,66 +185,166 @@
             width: 100%;
             border-collapse: collapse;
             min-width: 600px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
         }
 
         th, td {
-            padding: 14px 16px;
+            padding: 16px 20px;
             text-align: left;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 1px solid var(--border);
         }
 
         th {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             font-weight: 600;
             position: sticky;
             top: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9fbfa;
         }
 
         tr:hover {
-            background-color: #f5fbf8;
+            background-color: #f0f8f5;
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+
+        .no-border {
+            border-bottom: none !important;
+        }
+
+        .member-count {
+            background: var(--accent);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
         }
 
         /* Responsif */
         @media (max-width: 768px) {
             .tab-btn {
-                padding: 10px 18px;
-                font-size: 0.95rem;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                margin-bottom: 5px;
             }
 
             h1 {
-                font-size: 1.7rem;
+                font-size: 1.8rem;
             }
 
             .subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .tagline {
+                font-size: 0.9rem;
             }
 
             th, td {
-                padding: 10px 12px;
-                font-size: 0.95rem;
+                padding: 12px 15px;
+                font-size: 0.85rem;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+
+            .logo {
+                width: 80px;
+                height: 80px;
             }
         }
 
         footer {
             text-align: center;
             margin-top: 40px;
-            padding: 20px;
+            padding: 30px 20px;
             color: var(--dark);
             font-size: 0.95rem;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid var(--border);
+            background: rgba(255,255,255,0.7);
+            border-radius: 20px 20px 0 0;
+            backdrop-filter: blur(10px);
         }
 
         .back-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             margin-top: 15px;
             color: var(--secondary);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
         .back-link:hover {
-            text-decoration: underline;
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(26, 140, 95, 0.3);
+        }
+
+        .back-link i {
+            margin-right: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            background: var(--primary);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .quote {
+            font-style: italic;
+            color: var(--secondary);
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -198,11 +354,19 @@
             <img src="https://i.ibb.co.com/Q7C0TZKh/SMAN1-Cluring-emblem.png" alt="SMAN1 Cluring Emblem" class="logo">
             <h1>SUSUNAN PANITIA PEMBANGUNAN</h1>
             <p class="subtitle">Masjid Baitul Muttaqin – SMAN 1 Cluring</p>
+            <p class="tagline">"Membangun Ibadah, Membangun Umat"</p>
+            <div class="quote">
+                "Dan siapakah yang lebih utama agamanya daripada orang yang menyeru kepada Allah, mengerjakan amal yang saleh, serta berkata: 'Sesungguhnya aku termasuk orang-orang yang berserah diri'." - QS. Fussilat: 33
+            </div>
         </header>
 
         <div class="tabs">
-            <button class="tab-btn active" data-tab="struktur">Struktur Keanggotaan</button>
-            <button class="tab-btn" data-tab="tugas">Uraian Tugas</button>
+            <button class="tab-btn active" data-tab="struktur">
+                <i class="fas fa-users"></i> Struktur Keanggotaan
+            </button>
+            <button class="tab-btn" data-tab="tugas">
+                <i class="fas fa-tasks"></i> Uraian Tugas
+            </button>
         </div>
 
         <!-- Tab 1: Struktur Keanggotaan -->
@@ -217,26 +381,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>Pelindung</td><td>Helmi, S.Pd., M.Si</td><td>Kepala Sekolah</td></tr>
-                    <tr><td>2</td><td>Penanggung Jawab</td><td>Ali Muthohar, S.Pd</td><td>Guru</td></tr>
-                    <tr><td>3</td><td>Ketua Panitia</td><td>Drs. Sy Hadi</td><td>Guru</td></tr>
-                    <tr><td>4</td><td>Sekretaris</td><td>Alamsyah, S.E</td><td>Guru</td></tr>
-                    <tr><td>5</td><td>Bendahara</td><td>Dewi Ainur Rokhmah, S.Pd.I.</td><td>Guru</td></tr>
-                    <tr><td>6</td><td>Sie. Humas</td><td>Moh. Suharso, S.Pd</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>Drs. Suroso</td><td>Guru</td></tr>
-                    <tr><td>7</td><td>Sie. Penggali Dana</td><td>Imam Hadi Taufik H., S.Pd.I.</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>Aris Riyanto, S.Pd</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>Joko Irawan, S.Pd</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>Cahya Mahardika, S.Pd</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>Wali Kelas</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>OSIS</td><td>Siswa</td></tr>
-                    <tr><td>8</td><td>Pengawas Bangunan</td><td>Drs. Makhrus</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>Siswo Hariningtyas, S.Pd</td><td>Guru</td></tr>
-                    <tr><td>9</td><td>Pengadaan Barang</td><td>Imam Afandi, S.Pd</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>Andis Dwi, S.Sos.I.</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>M. As’ad, S.S</td><td>Guru</td></tr>
-                    <tr><td>10</td><td>Dokumentasi</td><td>Mirza Prasetyo, S.Pd</td><td>Guru</td></tr>
-                    <tr><td></td><td></td><td>Agus Winaryanto, S.Pd</td><td>Guru</td></tr>
+                    <tr><td>1</td><td>Pelindung <span class="member-count">1 org</span></td><td>Helmi, S.Pd., M.Si</td><td>Kepala Sekolah</td></tr>
+                    <tr><td>2</td><td>Penanggung Jawab <span class="member-count">1 org</span></td><td>Ali Muthohar, S.Pd</td><td>Guru</td></tr>
+                    <tr><td>3</td><td>Ketua Panitia <span class="member-count">1 org</span></td><td>Drs. Sy Hadi</td><td>Guru</td></tr>
+                    <tr><td>4</td><td>Sekretaris <span class="member-count">1 org</span></td><td>Alamsyah, S.E</td><td>Guru</td></tr>
+                    <tr><td>5</td><td>Bendahara <span class="member-count">1 org</span></td><td>Dewi Ainur Rokhmah, S.Pd.I.</td><td>Guru</td></tr>
+                    <tr><td>6</td><td>Sie. Humas <span class="member-count">2 org</span></td><td>Moh. Suharso, S.Pd</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>Drs. Suroso</td><td>Guru</td></tr>
+                    <tr><td>7</td><td>Sie. Penggali Dana <span class="member-count">6 org</span></td><td>Imam Hadi Taufik H., S.Pd.I.</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>Aris Riyanto, S.Pd</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>Joko Irawan, S.Pd</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>Cahya Mahardika, S.Pd</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>Wali Kelas</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>OSIS</td><td>Siswa</td></tr>
+                    <tr><td>8</td><td>Pengawas Bangunan <span class="member-count">2 org</span></td><td>Drs. Makhrus</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>Siswo Hariningtyas, S.Pd</td><td>Guru</td></tr>
+                    <tr><td>9</td><td>Pengadaan Barang <span class="member-count">3 org</span></td><td>Imam Afandi, S.Pd</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>Andis Dwi, S.Sos.I.</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>M. As'ad, S.S</td><td>Guru</td></tr>
+                    <tr><td>10</td><td>Dokumentasi <span class="member-count">2 org</span></td><td>Mirza Prasetyo, S.Pd</td><td>Guru</td></tr>
+                    <tr class="no-border"><td></td><td></td><td>Agus Winaryanto, S.Pd</td><td>Guru</td></tr>
                 </tbody>
             </table>
         </div>
@@ -266,11 +430,20 @@
             </table>
         </div>
 
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+        </div>
+
         <footer>
+            <p class="highlight">Mari bersama-sama mendukung pembangunan Masjid Baitul Muttaqin</p>
             <a href="index.html" class="back-link">
                 <i class="fas fa-arrow-left"></i> Kembali ke Halaman Utama
             </a>
             <p style="margin-top: 15px;">&copy; 2025 SMAN 1 Cluring – Masjid Baitul Muttaqin</p>
+            <p style="font-size: 0.8rem; margin-top: 5px;">Dibuat dengan ❤️ untuk Umat</p>
         </footer>
     </div>
 
@@ -287,6 +460,21 @@
                 // Show corresponding content
                 const tabId = button.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Add animation to table rows
+        document.addEventListener('DOMContentLoaded', function() {
+            const rows = document.querySelectorAll('tbody tr');
+            rows.forEach((row, index) => {
+                row.style.opacity = '0';
+                row.style.transform = 'translateY(20px)';
+                row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateY(0)';
+                }, index * 50);
             });
         });
     </script>
